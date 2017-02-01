@@ -38,12 +38,12 @@ Next I cut down the number of quotes substantially, for a few reasons.  One, qua
 
 The next thing I did was to review the grading scheme for this project, and ensure that I met all the base objectives, as well as the extra objectives.  
 
-	-Yes, the array of objects is named quotes.  
-	-Yes, there are at least 5 quotes.  
-	-Yes, there's an extra property (category).  However, to start none of my quotes have citations or years or categories
-	associated with them.  So I put empty strings in the json as placeholders for these, so I don't get 'undefined'.  But I do 
-	get a couple of commas trailing the attribution, for example, "--Isaac Asimov, , ".  That's because in the css file there 
-	exists the following: 
+-Yes, the array of objects is named quotes.  
+-Yes, there are at least 5 quotes.  
+-Yes, there's an extra property (category).  However, to start none of my quotes have citations or years or categories
+associated with them.  So I put empty strings in the json as placeholders for these, so I don't get 'undefined'.  But I do 
+get a couple of commas trailing the attribution, for example, "--Isaac Asimov, , ".  That's because in the css file there 
+exists the following: 
 
 	.citation:before {
 	  content: ", ";
@@ -54,30 +54,30 @@ The next thing I did was to review the grading scheme for this project, and ensu
 	  font-style: normal;
 	}
 
-	I quickly discovered that pseudo-elements like these are not part of the DOM and therefore can't be altered using jQuery's 
-	DOM methods.  I also learned that I can conditionally add a class to these elements, say, 'hideable', then overwrite the CSS 
-	by adding 
+I quickly discovered that pseudo-elements like these are not part of the DOM and therefore can't be altered using jQuery's 
+DOM methods.  I also learned that I can conditionally add a class to these elements, say, 'hideable', then overwrite the CSS 
+by adding 
 
 	.hideable:before {
 		content: "";
 	}
 
-	-No, getRandomQuote function does not return a duplicate quote until all quotes have been returned once.  But, this was 
-	easy to implement.  
-	-Yes, printQuote calls the getRandomQuote function, using the template supplied in the project instructions (modified to 
-	allow for quotes to have a 'category' property)
-	-No, quotes don't change automatically after a certain amount of time passes.  This was a one-liner.  
-	-No, the background color doesn't change each time the quote changes.  This was easy to implement.  I just grabbed a 
-	hexadecimal color generating javascript function from stackoverflow.  
+-No, getRandomQuote function does not return a duplicate quote until all quotes have been returned once.  But, this was 
+easy to implement.  
+-Yes, printQuote calls the getRandomQuote function, using the template supplied in the project instructions (modified to 
+allow for quotes to have a 'category' property)
+-No, quotes don't change automatically after a certain amount of time passes.  This was a one-liner.  
+-No, the background color doesn't change each time the quote changes.  This was easy to implement.  I just grabbed a 
+hexadecimal color generating javascript function from stackoverflow.  
 
 
 Treehouse Feedback:  
 
-	-the code that runs through the quote list once completely before repeating a quote, could be more DRY.
-	-Some randomly generated background colors are too light for the color of the text.
-	-The timer that generates a new quote every 30 seconds, doesn't reset when the user clicks the button.
+-the code that runs through the quote list once completely before repeating a quote, could be more DRY.
+-Some randomly generated background colors are too light for the color of the text.
+-The timer that generates a new quote every 30 seconds, doesn't reset when the user clicks the button.
 
-	All good points.  As for the first, there's only three lines of repeated code.  That's not too much, really.  
-	The second and third points have been fixed.  
+All good points.  As for the first, there's only three lines of repeated code.  That's not too much, really.  
+The second and third points have been fixed.  
 
-	Next time I'll also make sure I'm under version control all the way through instead of just at the end.  
+Next time I'll also make sure I'm under version control all the way through instead of just at the end.  
