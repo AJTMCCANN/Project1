@@ -29,13 +29,14 @@ function printQuote() {
 	var new_source = "<p class=\"source\">" + quote[1] + "<span class=\"citation\">" + quote[2] + "</span><span class = \"year\">" + quote[3] + "</span><span class=\"category\">" + quote[4] + "</span></p>"
 	document.getElementById('quote-box').innerHTML = new_quote + new_source
 
-	if ($(".citation").text() === "") { $(".citation").addClass('hideable') };		//these three lines avoid a bunch of trailing commmas that would be
-	if ($(".year").text() === "") { $(".year").addClass('hideable') };				//inserted due to the ':before' pseudoelements' css styling if a quote
-	if ($(".category").text() === "") { $(".category").addClass('hideable') };		//was missing one of these three properties
+	if ($(".citation").text() === "") { $(".citation").addClass('hideable') };		// these three lines avoid a bunch of trailing commmas that would be
+	if ($(".year").text() === "") { $(".year").addClass('hideable') };				// inserted due to the ':before' pseudoelements' css styling if a quote
+	if ($(".category").text() === "") { $(".category").addClass('hideable') };		// was missing one of these three properties
 
 	$("body").css("background-color", getRandomColor());	// randomizes the background color
+
 	window.clearInterval(timer);
-	timer = setInterval(printQuote, 30000);
+	timer = setInterval(printQuote, 30000);					// resets the timer when the button is clicked
 }
 
 function getRandomColor() {
