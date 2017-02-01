@@ -1,4 +1,5 @@
 var recycled_quotes = []
+var timer = setInterval(printQuote, 30000);	 //if the user does nothing a new quote is displayed every 30 seconds
 
 function getRandomIndex() {
 	var index = Math.floor(Math.random() * quotes.length);
@@ -7,17 +8,19 @@ function getRandomIndex() {
 
 function getRandomQuote() {
 	var index = getRandomIndex()
-	quote = quotes.pop(index);
-	recycled_quotes.unshift(quote);
-	if (quote === undefined) {
+	if (quotes[index] === undefined) {
 		quotes = recycled_quotes;			// quotes get put in the recycled_quotes array (defined at top of script) when they are popped
 		recycled_quotes = [];				// this 'if' block runs when the array runs out of quotes from 'quotes.pop(index)'
 		index = getRandomIndex();			// it resets the 'quotes' array for another runthrough
 		quote = quotes.pop(index);
 		recycled_quotes.unshift(quote);
 		return quote
+	} else {
+		quote = quotes.pop(index);
+		recycled_quotes.unshift(quote);
+		return quote
 	}
-	return quote
+	
 }
 
 function printQuote() {
@@ -31,15 +34,16 @@ function printQuote() {
 	if ($(".category").text() === "") { $(".category").addClass('hideable') };		//was missing one of these three properties
 
 	$("body").css("background-color", getRandomColor());	// randomizes the background color
-
+	window.clearInterval(timer);
+	timer = setInterval(printQuote, 30000);
 }
 
 function getRandomColor() {
-	var hex = Math.floor(Math.random() * 0xFFFFFF);
+	var hex = Math.floor(Math.random() * 0xAAAAAA);
 	return "#" + ("000000" + hex.toString(16)).substr(-6);
 }
 
-setInterval(printQuote, 30000);	 //if the user does nothing a new quote is displayed every 30 seconds
+
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);  // event listener to respond to "Show another quote" button clicks
 document.getElementById('loadQuote').click(); 								// when user clicks anywhere on the button, the "printQuote" function is called
