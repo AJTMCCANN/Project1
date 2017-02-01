@@ -74,7 +74,9 @@ hexadecimal color generating javascript function from stackoverflow.
 Treehouse Feedback:  
 
 -the code that runs through the quote list once completely before repeating a quote, could be more DRY.
+
 -Some randomly generated background colors are too light for the color of the text.
+
 -The timer that generates a new quote every 30 seconds, doesn't reset when the user clicks the button.
 
 All good points.  As for the first, there's only three lines of repeated code.  That's not too much, really.  
