@@ -1,5 +1,6 @@
 # Project1
 Treehouse Full Stack Javascript TechDegree
+
 Well, I found a text file containing a multitude of quotes.  Now I want to load it into a two-dimensional array where each element of the array contains an array with a quote and an attribution inside of it.  Each quote is separated by a line containing nothing but a period.  And each attribution is preceded by a double dash, --.  Hopping onto stackoverflow, the first two (and most highly upvoted) answers to the question, "How do I load the contents of a text file into a javascript variable?" involve AJAX and JQuery, respectively.  I haven't studied either of those yet, but that's ok.  I can create a quick script in Ruby that will take care of this.
 
 	require 'json'
@@ -39,7 +40,10 @@ The next thing I did was to review the grading scheme for this project, and ensu
 
 	-Yes, the array of objects is named quotes.  
 	-Yes, there are at least 5 quotes.  
-	-Yes, there's an extra property (category).  However, to start none of my quotes have citations or years or categories associated with them.  So I put empty strings in the json as placeholders for these, so I don't get 'undefined'.  But I do get a couple of commas trailing the attribution, for example, "--Isaac Asimov, , ".  That's because in the css file there exists the following: 
+	-Yes, there's an extra property (category).  However, to start none of my quotes have citations or years or categories
+	associated with them.  So I put empty strings in the json as placeholders for these, so I don't get 'undefined'.  But I do 
+	get a couple of commas trailing the attribution, for example, "--Isaac Asimov, , ".  That's because in the css file there 
+	exists the following: 
 
 	.citation:before {
 	  content: ", ";
@@ -50,16 +54,21 @@ The next thing I did was to review the grading scheme for this project, and ensu
 	  font-style: normal;
 	}
 
-	I quickly discovered that pseudo-elements like these are not part of the DOM and therefore can't be altered using jQuery's DOM methods.  I also learned that I can conditionally add a class to these elements, say, 'hideable', then overwrite the CSS by adding 
+	I quickly discovered that pseudo-elements like these are not part of the DOM and therefore can't be altered using jQuery's 
+	DOM methods.  I also learned that I can conditionally add a class to these elements, say, 'hideable', then overwrite the CSS 
+	by adding 
 
 	.hideable:before {
 		content: "";
 	}
 
-	-No, getRandomQuote function does not return a duplicate quote until all quotes have been returned once.  But, this was easy to implement.  
-	-Yes, printQuote calls the getRandomQuote function, using the template supplied in the project instructions (modified to allow for quotes to have a 'category' property)
+	-No, getRandomQuote function does not return a duplicate quote until all quotes have been returned once.  But, this was 
+	easy to implement.  
+	-Yes, printQuote calls the getRandomQuote function, using the template supplied in the project instructions (modified to 
+	allow for quotes to have a 'category' property)
 	-No, quotes don't change automatically after a certain amount of time passes.  This was a one-liner.  
-	-No, the background color doesn't change each time the quote changes.  This was easy to implement.  I just grabbed a hexadecimal color generating javascript function from stackoverflow.  
+	-No, the background color doesn't change each time the quote changes.  This was easy to implement.  I just grabbed a 
+	hexadecimal color generating javascript function from stackoverflow.  
 
 
 Treehouse Feedback:  
