@@ -81,5 +81,3 @@ Treehouse Feedback:
 
 All good points.  As for the first, there's only three lines of repeated code.  That's not too much, really.  
 The second and third points have been fixed.  
-
-Next time I'll also make sure I'm under version control all the way through instead of just at the end.  
